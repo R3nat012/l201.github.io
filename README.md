@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<img id="slide-img" src="slide1.png" />
+<img id="slide-img" src="Componentes_l201.jpg" />
 <iframe id="sheet"
   src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSzna1dS_hUHyWukdkuJSsKEjzKcnJXHOy1Mrtria5zvRIqsGwjfXRUB-4gcz9tLv3VkGBOy3jNjjVZ/pubhtml?gid=1370414161&single=true">
 </iframe>
