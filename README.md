@@ -17,7 +17,7 @@
 </head>
 <body>
 
-<iframe id="slides" src="https://docs.google.com/presentation/d/e/2PACX-1vQx4X5UAD-X17lcE9aFRPdklw3W_VzyK1merA8aJmgXuqpPlyauDsMjObEC3bQ7geQtzR3WdfU6B6xg/pub?start=true&loop=true&delayms=2000"></iframe>
+<iframe id="slides" src="https://docs.google.com/presentation/d/e/2PACX-1vQx4X5UAD-X17lcE9aFRPdklw3W_VzyK1merA8aJmgXuqpPlyauDsMjObEC3bQ7geQtzR3WdfU6B6xg/embed?start=true&loop=true&delayms=2000"></iframe>
 
 <iframe id="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSzna1dS_hUHyWukdkuJSsKEjzKcnJXHOy1Mrtria5zvRIqsGwjfXRUB-4gcz9tLv3VkGBOy3jNjjVZ/pubhtml?gid=1370414161&single=true" style="display:none;"></iframe>
 
