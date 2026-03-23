@@ -22,13 +22,13 @@
 </head>
 <body>
 
-<img id="slide-img" src="/l201.github.io/Componentes_l201.jpg" />
+<img id="slide-img" src="l201.github.io/Componentes_l201.jpg" />
 <iframe id="sheet"
   src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSzna1dS_hUHyWukdkuJSsKEjzKcnJXHOy1Mrtria5zvRIqsGwjfXRUB-4gcz9tLv3VkGBOy3jNjjVZ/pubhtml?gid=1370414161&single=true">
 </iframe>
 
 <script>
-  const SLIDES        = ["/l201.github.io/Componentes_l201.jpg","/l201.github.io/Impresiones_l201.jpg","/l201.github.io/robots_l201.jpg"];
+  const SLIDES        = ["l201.github.io/Componentes_l201.jpg","l201.github.io/Impresiones_l201.jpg","l201.github.io/robots_l201.jpg"];
   const SLIDE_DURATION = 3000; // ms per slide
   const SHEET_DURATION = 5000; // ms for sheet
 
