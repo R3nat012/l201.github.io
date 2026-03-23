@@ -43,8 +43,12 @@ layout: null
     return `https://docs.google.com/presentation/d/${PRESENTATION_ID}/export/png?pageid=p${slideNumber === 1 ? "" : slideNumber}`;
   }
 
-  const FIRST_OF_LAST5 = TOTAL_SLIDES - 4;
+  const FIRST_OF_LAST5 = TOTAL_SLIDES - 2;
   let currentSlide = FIRST_OF_LAST5;
+
+  function getSlideUrl(slideNumber) {
+    return `https://docs.google.com/presentation/d/${PRESENTATION_ID}/export/png?pageid=p${slideNumber === 1 ? "" : slideNumber}`;
+  }
 
   function showNextSlide() {
     img.style.display = "block";
@@ -53,8 +57,8 @@ layout: null
 
     currentSlide++;
     if (currentSlide > TOTAL_SLIDES) {
-      currentSlide = 1;
-      setTimeout(showSheet, SLIDE_DURATION); // after last slide, show sheet
+      currentSlide = FIRST_OF_LAST5; // loop back to first of last 5
+      setTimeout(showSheet, SLIDE_DURATION);
     } else {
       setTimeout(showNextSlide, SLIDE_DURATION);
     }
@@ -63,13 +67,11 @@ layout: null
   function showSheet() {
     img.style.display = "none";
     sheet.style.display = "block";
-    // force refresh
     sheet.src = sheet.src.split("&t=")[0] + "&t=" + Date.now();
-    setTimeout(() => { currentSlide = 1; showNextSlide(); }, SHEET_DURATION);
+    setTimeout(() => { currentSlide = FIRST_OF_LAST5; showNextSlide(); }, SHEET_DURATION);
   }
 
-  // preload first slide then start
-  img.src = getSlideUrl(1);
+  img.src = getSlideUrl(FIRST_OF_LAST5);
   img.onload = showNextSlide;
 </script>
 </body>
