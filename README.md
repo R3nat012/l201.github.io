@@ -1,78 +1,50 @@
----
-layout: null
----
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">
   <title>Display</title>
   <style>
-    body { margin: 0; overflow: hidden; background: #000; }
-    #slide-img {
+    body { margin: 0; overflow: hidden; }
+    iframe {
       position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      object-fit: contain;
-    }
-    #sheet {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       border: none;
-      display: none;
     }
   </style>
 </head>
 <body>
 
-<img id="slide-img" src="" />
-<iframe id="sheet"
-  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSzna1dS_hUHyWukdkuJSsKEjzKcnJXHOy1Mrtria5zvRIqsGwjfXRUB-4gcz9tLv3VkGBOy3jNjjVZ/pubhtml?gid=1370414161&single=true">
-</iframe>
+<iframe id="slides" src="https://docs.google.com/presentation/d/e/2PACX-1vQx4X5UAD-X17lcE9aFRPdklw3W_VzyK1merA8aJmgXuqpPlyauDsMjObEC3bQ7geQtzR3WdfU6B6xg/pub?start=true&loop=true&delayms=2000"></iframe>
+
+<iframe id="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSzna1dS_hUHyWukdkuJSsKEjzKcnJXHOy1Mrtria5zvRIqsGwjfXRUB-4gcz9tLv3VkGBOy3jNjjVZ/pubhtml?gid=1370414161&single=true" style="display:none;"></iframe>
 
 <script>
-  const PRESENTATION_ID = "1_s2ba0wRyUjUt-MfHUoQ9d5WjV7eT_vr9qKcnAahAjg";
-  const TOTAL_SLIDES = 22; // change to your actual number of slides
-  const SLIDE_DURATION = 3000;  // ms per slide
-  const SHEET_DURATION = 5000;  // ms for sheet
-
-  const img = document.getElementById("slide-img");
+  const slides = document.getElementById("slides");
   const sheet = document.getElementById("sheet");
 
-  function getSlideUrl(slideNumber) {
-    return `https://docs.google.com/presentation/d/${PRESENTATION_ID}/export/png?pageid=p${slideNumber === 1 ? "" : slideNumber}`;
-  }
-
-  const FIRST_OF_LAST5 = TOTAL_SLIDES - 2;
-  let currentSlide = FIRST_OF_LAST5;
-
-  function getSlideUrl(slideNumber) {
-    return `https://docs.google.com/presentation/d/${PRESENTATION_ID}/export/png?pageid=p${slideNumber === 1 ? "" : slideNumber}`;
-  }
-
-  function showNextSlide() {
-    img.style.display = "block";
+  function showSlides() {
+    slides.style.display = "block";
     sheet.style.display = "none";
-    img.src = getSlideUrl(currentSlide);
 
-    currentSlide++;
-    if (currentSlide > TOTAL_SLIDES) {
-      currentSlide = FIRST_OF_LAST5; // loop back to first of last 5
-      setTimeout(showSheet, SLIDE_DURATION);
-    } else {
-      setTimeout(showNextSlide, SLIDE_DURATION);
-    }
+    setTimeout(showSheet, 7000); // 7 segundos slides
   }
 
   function showSheet() {
-    img.style.display = "none";
+    slides.style.display = "none";
     sheet.style.display = "block";
-    sheet.src = sheet.src.split("&t=")[0] + "&t=" + Date.now();
-    setTimeout(() => { currentSlide = FIRST_OF_LAST5; showNextSlide(); }, SHEET_DURATION);
+
+    // refresca el sheet para actualizar datos
+    sheet.src = sheet.src;
+
+    setTimeout(showSlides, 5000); // 5 segundos sheet
   }
 
-  img.src = getSlideUrl(FIRST_OF_LAST5);
-  img.onload = showNextSlide;
+  // iniciar
+  showSlides();
 </script>
+
 </body>
 </html>
