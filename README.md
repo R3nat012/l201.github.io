@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,35 +19,23 @@
   </style>
 </head>
 <body>
-
 <iframe id="slides" src="https://docs.google.com/presentation/d/e/2PACX-1vQx4X5UAD-X17lcE9aFRPdklw3W_VzyK1merA8aJmgXuqpPlyauDsMjObEC3bQ7geQtzR3WdfU6B6xg/pub?start=true&loop=true&delayms=2000"></iframe>
-
 <iframe id="sheet" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSzna1dS_hUHyWukdkuJSsKEjzKcnJXHOy1Mrtria5zvRIqsGwjfXRUB-4gcz9tLv3VkGBOy3jNjjVZ/pubhtml?gid=1370414161&single=true" style="display:none;"></iframe>
-
 <script>
   const slides = document.getElementById("slides");
   const sheet = document.getElementById("sheet");
-
   function showSlides() {
     slides.style.display = "block";
     sheet.style.display = "none";
-
-    setTimeout(showSheet, 7000); // 7 segundos slides
+    setTimeout(showSheet, 7000);
   }
-
   function showSheet() {
     slides.style.display = "none";
     sheet.style.display = "block";
-
-    // refresca el sheet para actualizar datos
     sheet.src = sheet.src;
-
-    setTimeout(showSlides, 5000); // 5 segundos sheet
+    setTimeout(showSlides, 5000);
   }
-
-  // iniciar
   showSlides();
 </script>
-
 </body>
 </html>
