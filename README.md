@@ -29,20 +29,18 @@
     slides.style.display = "block";
     sheet.style.display = "none";
 
-    setTimeout(showSheet, 7000); // 7 segundos slides
+    setTimeout(showSheet, 7000); 
   }
 
   function showSheet() {
     slides.style.display = "none";
     sheet.style.display = "block";
-
-    // refresca el sheet para actualizar datos
+    
     sheet.src = sheet.src;
 
-    setTimeout(showSlides, 5000); // 5 segundos sheet
+    setTimeout(showSlides, 5000); 
   }
 
-  // iniciar
   showSlides();
 </script>
 
